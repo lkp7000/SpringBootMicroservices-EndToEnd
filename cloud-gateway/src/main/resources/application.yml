@@ -26,14 +26,6 @@ spring:
                 name: DEPARTMENT-SERVICE
                 fallbackuri: forward:/departmentServiceFallBack
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      default-zone: http://localhost:8761/eureka/
-    instance:
-      hostname: localhost
 
 hystrix:
   command:
@@ -43,8 +35,18 @@ hystrix:
           thread:
             timeoutInMilliseconds: 4000
 
+
 management:
   endpoints:
     web:
       exposure:
         include: hystrix.stream
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+    instance:
+      hostname: localhost
